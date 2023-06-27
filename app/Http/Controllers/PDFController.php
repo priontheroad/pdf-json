@@ -46,7 +46,7 @@ class PDFController extends Controller
         }
         return $sentencasEncontradas;
     }
-    private function buscarCnpjs($pdf)
+    public function buscarCnpjs($pdf)
     {
         $textoCompleto = $pdf->getText();
         preg_match_all('/CNPJ Estabelecimento:\s*([0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}-[0-9]{2})/', $textoCompleto, $cnpjsEncontrados);
