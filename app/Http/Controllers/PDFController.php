@@ -122,7 +122,14 @@ class PDFController extends Controller
     public function pdfParaJson(Request $request)
     {
         if ($request->hasFile('pdf')) {
-            $caminhoPdf = $request->file('pdf')->getPathname();
+            $arquivo = $request->file('pdf');
+
+            // Validar se o arquivo é um PDF
+            if ($arquivo->getClientOriginalExtension() !== 'pdf') {
+                return response()->json(['error' => 'O arquivo não é um PDF válido.'], 400);
+            }
+
+            $caminhoPdf = $arquivo->getPathname();
 
             $parser = new Parser();
             $pdf = $parser->parseFile($caminhoPdf);
