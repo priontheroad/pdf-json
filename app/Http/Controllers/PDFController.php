@@ -144,7 +144,6 @@ class PDFController extends Controller
                 $sentencasEncontradas = $this->encontrarSentencas($textoCompleto, $cnpjEstabelecimento);
 
                 $valoresPisCofins = $this->encontrarValoresPisCofinsEmDocumento($textoCompleto, $sentencasEncontradas, $cnpjsEncontrados);
-                $valoresPisCofins = $this->encontrarValoresPisCofinsEmDocumento($textoCompleto, $sentencasEncontradas, $cnpjsEncontrados);
 
                 $primeiroItem = reset($valoresPisCofins); // Obter o primeiro item do array
                 $ultimoItem = end($valoresPisCofins); // Obter o último item do array
